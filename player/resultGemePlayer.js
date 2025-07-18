@@ -7,5 +7,5 @@ export function ResultGame(name) {
     const avergeTime = getSecondsForQuestion()
     const allTime = getTimeForAllRidders()
 
-    Create(Player(name, avergeTime, allTime), '/dataPlayer')
+    Create(Player(name, avergeTime, allTime), '/player/dataPlayer')
 }

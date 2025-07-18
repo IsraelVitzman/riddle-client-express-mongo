@@ -1,6 +1,6 @@
 export async function Create(riddle, url) {
     try {
-        const reqoest = await fetch(`https://new-project-riddle-with-server.onrender.com/${url}`, {
+        const reqoest = await fetch(`https://riddle-express-mongo.onrender.com${url}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

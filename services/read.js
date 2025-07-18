@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 
 export async function Read() {
     try {
-        const response = await fetch('https://new-project-riddle-with-server.onrender.com/read')
+        const response = await fetch('https://riddle-express-mongo.onrender.com/getAllRidlles')
 
         const data = await response.json();
         if (!data) {
