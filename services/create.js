@@ -10,7 +10,6 @@ export async function Create(riddle, url) {
 
         })
         
-
         if (reqoest.ok) {
             console.log("seccossflly added to  server.");
         }

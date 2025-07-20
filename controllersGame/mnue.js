@@ -12,8 +12,8 @@ export async function showMainMenu() {
 1. Play the game
 2. Create a new riddle
 3. Show all riddles
-4. Update a riddle by ID
-5. Delete a riddle by ID
+4. Show all players
+5. Show all result game
 ==========================
     `);
 
@@ -42,20 +42,21 @@ export async function showMainMenu() {
 
                 case '3':
                     console.log('📜 Showing all riddles...');
-                    const data = await Read()
-                    console.log(data);
-
+                    const dataRiddles = await Read("riddles/getAllRiddles")
+                    console.log(dataRiddles);
                     break;
 
-                case '4':
-                    console.log('✏️ Updating riddle by ID...');
 
+                case '4':
+                    console.log('📜 Showing all players...');
+                    const dataPlayers = await Read("player/getAllNamePlayers")
+                    console.log(dataPlayers);
                     break;
 
                 case '5':
-                    console.log('🗑️ Deleting riddle by ID...');
-                    const DeleteById = readlineSync.question('Enter ID: if you wont to delete all enter (all)');
-                    await delate(DeleteById)
+                    console.log('📜 Showing all Result Game...');
+                    const dataResultGame = await Read("player/getAllDataPlayers")
+                    console.log(dataResultGame);
                     break;
 
                 default:

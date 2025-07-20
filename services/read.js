@@ -1,9 +1,9 @@
 
 import fetch from 'node-fetch';
 
-export async function Read() {
+export async function Read(url) {
     try {
-        const response = await fetch('http://localhost:3000/riddles/getAllRiddles')
+        const response = await fetch(`http://localhost:3000/${url}`)
 
 
 
