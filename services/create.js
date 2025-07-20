@@ -1,6 +1,6 @@
 export async function Create(riddle, url) {
     try {
-        const reqoest = await fetch(`http://localhost:3000${url}`, {
+        const reqoest = await fetch(`http://localhost:3000/${url}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

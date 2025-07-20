@@ -37,7 +37,7 @@ export async function showMainMenu() {
                     const answer = readlineSync.question('Enter the answer: ');
 
                     await NewRiddle(id, name, hint, question, answer)
-
+                    
                     break;
 
                 case '3':
@@ -55,7 +55,7 @@ export async function showMainMenu() {
 
                 case '5':
                     console.log('📜 Showing all Result Game...');
-                    const dataResultGame = await Read("player/getAllDataPlayers")
+                    const dataResultGame = await Read("resultGame/getAllDataPlayers")
                     console.log(dataResultGame);
                     break;
 

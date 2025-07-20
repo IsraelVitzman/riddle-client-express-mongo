@@ -6,8 +6,8 @@ export async function CheakPlayer(name) {
 
     const data = await Read("player/getAllNamePlayers")
     console.log(" i am cheak if is found...");
-    console.log(data);
-    
+
+
     for (var namePlayer of data) {
         if (name === namePlayer.name) {
             return "it's found"
@@ -15,7 +15,7 @@ export async function CheakPlayer(name) {
     }
     console.log("no found! create new.");
 
-    await Create({ "name": name }, '/player/newPlayer')
+    await Create({ "name": name }, 'player/newPlayer')
 }
 
 

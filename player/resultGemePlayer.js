@@ -8,5 +8,5 @@ export async function ResultGame(name) {
     const allTime = getTimeForAllRidders()
     console.log("name", name, "avergeTime", avergeTime, "allTime", allTime);
 
-    await Create(Player(name, avergeTime, allTime), '/player/dataPlayer')
+    await Create(Player(name, avergeTime, allTime), 'resultGame/dataPlayer')
 }
