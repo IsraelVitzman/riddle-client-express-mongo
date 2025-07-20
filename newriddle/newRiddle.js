@@ -9,5 +9,5 @@ export async function NewRiddle(id, name, hint, question, answer) {
         "question": question,
         "answer": answer,
     }
-    await Create(newRiddlle, '/riddles/addRiddle')
+    await Create(newRiddlle, 'riddles/addRiddle')
 }

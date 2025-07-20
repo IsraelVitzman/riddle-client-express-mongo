@@ -4,17 +4,27 @@ import { CheakPlayer } from "../player/cheakPlayer.js";
 import { ResultGame } from "../player/resultGemePlayer.js";
 
 import readlineSync from 'readline-sync';
+import { log } from "node:console";
 
 export async function ManegerGame() {
     console.log("welcome!!");
-
-    const name = readlineSync.question("What is your name? ");
-    CheakPlayer(name)
+  try{
+     const name = readlineSync.question("What is your name? ");
+    await CheakPlayer(name)
 
 
     const allRiddles = await Read()
+    console.log(allRiddles);
+    
     await Riddles(allRiddles)
 
     await ResultGame(name)
+
+
+
+  }catch(err){
+        console.error(err);
+  }
+    
 
 }

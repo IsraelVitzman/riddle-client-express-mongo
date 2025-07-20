@@ -15,7 +15,8 @@ export async function CheakPlayer(name) {
     }
     console.log("no found! create new.");
 
-    await Create({ "name": name }, 'player/newPlayer')
+    await Create({"name": name },'player/newPlayer')
 }
+
 
 
