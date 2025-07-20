@@ -8,23 +8,23 @@ import { log } from "node:console";
 
 export async function ManegerGame() {
     console.log("welcome!!");
-  try{
-     const name = readlineSync.question("What is your name? ");
-    await CheakPlayer(name)
+    try {
+        const name = readlineSync.question("What is your name? ");
+        await CheakPlayer(name)
 
 
-    const allRiddles = await Read()
-    console.log(allRiddles);
-    
-    await Riddles(allRiddles)
-
-    await ResultGame(name)
+        const allRiddles = await Read("riddles/getAllRiddles")
 
 
+        await Riddles(allRiddles)
 
-  }catch(err){
+        await ResultGame(name)
+
+
+
+    } catch (err) {
         console.error(err);
-  }
-    
+    }
+
 
 }
