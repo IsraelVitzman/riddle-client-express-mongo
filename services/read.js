@@ -3,9 +3,18 @@ import fetch from 'node-fetch';
 
 export async function Read() {
     try {
-        const response = await fetch('https://riddle-express-mongo.onrender.com/getAllRidlles')
+        const response = await fetch('http://localhost:3000/riddles/getAllRiddles')
+
+
 
         const data = await response.json();
+
+
+        if (!response.ok) {
+            console.error("Server error:", response.status, await response.text());
+            return [];
+        }
+
         if (!data) {
             return "is null"
         }

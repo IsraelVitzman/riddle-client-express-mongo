@@ -1,4 +1,6 @@
 import { ManegerGame } from "./controlessGame.js";
+import { NewRiddle } from "../newriddle/newRiddle.js";
+import { Read } from "../services/read.js";
 import readlineSync from 'readline-sync';
 
 
@@ -21,8 +23,8 @@ export async function showMainMenu() {
             switch (choice) {
                 case '1':
                     console.log('🎮 Starting the game...');
-                    await   ManegerGame()
-                    
+                    await ManegerGame()
+
 
                     break;
 
@@ -34,14 +36,14 @@ export async function showMainMenu() {
                     const question = readlineSync.question('Enter the question: ');
                     const answer = readlineSync.question('Enter the answer: ');
 
-
+                    await NewRiddle(id, name, hint, question, answer)
 
                     break;
 
                 case '3':
                     console.log('📜 Showing all riddles...');
-                    const riddles = await getRiddels()
-                    console.log(riddles);
+                    const data = await Read()
+                    console.log(data);
 
                     break;
 

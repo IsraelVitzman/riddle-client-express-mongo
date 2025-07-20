@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 export async function delate(id) {
     try {
-        const response = await fetch(`https://riddle-express-mongo.onrender.com/deleteRiddle/${id}`, {
+        const response = await fetch(`http://localhost:3000${id}`, {
             method: 'DELETE'
         })
         if (response.ok) {

@@ -10,11 +10,11 @@ export async function ManegerGame() {
 
     const name = readlineSync.question("What is your name? ");
     CheakPlayer(name)
-    
+
 
     const allRiddles = await Read()
     await Riddles(allRiddles)
 
-    ResultGame(name)
+    await ResultGame(name)
 
 }

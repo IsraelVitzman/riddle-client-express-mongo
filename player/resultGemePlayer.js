@@ -2,10 +2,11 @@ import { Create } from '../services/create.js'
 import { Player } from "./newPlayer.js";
 import { getTimeForAllRidders, getSecondsForQuestion } from "../utils/manegerTime.js";
 
-export function ResultGame(name) {
+export async function ResultGame(name) {
 
     const avergeTime = getSecondsForQuestion()
     const allTime = getTimeForAllRidders()
+    console.log("name", name, "avergeTime", avergeTime, "allTime", allTime);
 
-    Create(Player(name, avergeTime, allTime), '/player/dataPlayer')
+    await Create(Player(name, avergeTime, allTime), '/player/dataPlayer')
 }

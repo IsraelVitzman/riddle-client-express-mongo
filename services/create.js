@@ -1,13 +1,16 @@
 export async function Create(riddle, url) {
     try {
-        const reqoest = await fetch(`https://riddle-express-mongo.onrender.com${url}`, {
+        const reqoest = await fetch(`http://localhost:3000${url}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(riddle)
 
+
         })
+        
+
         if (reqoest.ok) {
             console.log("seccossflly added to  server.");
         }
