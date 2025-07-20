@@ -1,8 +1,8 @@
 import fetch from 'node-fetch';
 
-export async function delate(id) {
+export async function Delate(id) {
     try {
-        const response = await fetch(`http://localhost:3000/${id}`, {
+        const response = await fetch(`http://localhost:3000/riddles/deleteRiddle${id}`, {
             method: 'DELETE'
         })
         if (response.ok) {

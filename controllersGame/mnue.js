@@ -1,6 +1,7 @@
 import { ManegerGame } from "./controlessGame.js";
 import { NewRiddle } from "../newriddle/newRiddle.js";
 import { Read } from "../services/read.js";
+import { Delate } from "../services/delete.js";
 import readlineSync from 'readline-sync';
 
 
@@ -14,6 +15,7 @@ export async function showMainMenu() {
 3. Show all riddles
 4. Show all players
 5. Show all result game
+6. delete by id
 ==========================
     `);
 
@@ -37,7 +39,7 @@ export async function showMainMenu() {
                     const answer = readlineSync.question('Enter the answer: ');
 
                     await NewRiddle(id, name, hint, question, answer)
-                    
+
                     break;
 
                 case '3':
@@ -57,6 +59,12 @@ export async function showMainMenu() {
                     console.log('📜 Showing all Result Game...');
                     const dataResultGame = await Read("resultGame/getAllDataPlayers")
                     console.log(dataResultGame);
+                    break;
+
+                case '6':
+                    console.log('📜 delete by id...');
+                    const idDelete = readlineSync.question('Enter id: ');
+                    await Delate(idDelete)
                     break;
 
                 default:
