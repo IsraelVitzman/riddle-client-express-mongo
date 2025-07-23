@@ -6,7 +6,7 @@ export async function ResultGame(name) {
 
     const avergeTime = getSecondsForQuestion()
     const allTime = getTimeForAllRidders()
-    console.log("name", name, "avergeTime", avergeTime, "allTime", allTime);
+    console.log("name", name, "avergetime", avergeTime, "alltime", allTime);
 
     await Create(Player(name, avergeTime, allTime), 'resultGame/dataPlayer')
 }
