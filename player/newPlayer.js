@@ -2,7 +2,7 @@
 export function Player(name, aveTime, allTime) {
     return {
         "name": name,
-        "aveTime": aveTime,
+        "avergeTime": aveTime,
         "allTime": allTime
     }
 }

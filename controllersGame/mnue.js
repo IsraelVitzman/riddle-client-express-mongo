@@ -1,31 +1,40 @@
 import { ManegerGame } from "../logikGame/controlessGame.js";
 import { NewRiddle } from "../newriddle/newRiddle.js";
-import { Read } from "../services/read.js";
-import { Delate } from "../services/delete.js";
+import { Read } from "../servicesRiddle/read.js";
+import { GetResultPlayer } from "../servicesPlayer/read.js";
+import { Delate } from "../servicesRiddle/delete.js";
+import { Update } from "../servicesRiddle/updete.js";
 import readlineSync from 'readline-sync';
-
+import { login, GetCookie } from "../login/login.js";
 
 export async function showMainMenu() {
+    console.log("Welcome to game riddle");
+    const nameUser = readlineSync.question("What is your name? ");
+
+    await login(nameUser);
+    if (await GetCookie() === null)
+        return "you have no token try agen"
+
+
     while (true) {
-               console.log(`
+        console.log(`
 ==========================
 ✨ Main Menu ✨
 1. Play the game
 2. Create a new riddle
 3. Show all riddles
-4. Show all players
-5. Show all best results
-6. Delete riddle by id
-7. Login player
-8. Show best result of one player
-9. Update a riddle
+4. Delete riddle by id
+5. Update a riddle
+6. Show best on player
+7. Show best all players
 ==========================
 `);
 
         const choice = readlineSync.question('Choose an action (1-9): ');
         switch (choice) {
+
             case '1':
-                await ManegerGame();
+                await ManegerGame(nameUser);
                 break;
 
             case '2':
@@ -42,31 +51,23 @@ export async function showMainMenu() {
                 console.log(riddles);
                 break;
 
-            
 
-            case '5':
-                const results = await Read("resultGame/resultBestAllPlayers");
-                console.log(results);
-                break;
 
-            case '6':
+            case '4':
                 const idDelete = readlineSync.question('Enter riddle ID to delete: ');
                 await Delate(idDelete);
                 break;
 
-            
 
-            case '8':
-                const nameSearch = readlineSync.question('Enter player name: ');
-                await GetBestResultByPlayer(nameSearch);
-                break;
 
-            case '9':
+
+            case '5':
                 const updateId = readlineSync.question('Enter riddle ID to update: ');
                 const newName = readlineSync.question('New name: ');
                 const newHint = readlineSync.question('New hint: ');
                 const newQuestion = readlineSync.question('New question: ');
                 const newAnswer = readlineSync.question('New answer: ');
+
                 await Update(updateId, {
                     name: newName,
                     hint: newHint,
@@ -75,10 +76,21 @@ export async function showMainMenu() {
                 });
                 break;
 
+            case '6':
+                const User = readlineSync.question("What is your name? ");
+                const results = await GetResultPlayer(User, "resultGame/resultBestPlayer");
+                console.log(results);
+                break;
+
+
+            case '7':
+                const result = await Read("resultGame/resultBestAllPlayers");
+                console.log(result);
+                break;
+
             default:
                 console.log('⚠️ Invalid choice. Try again.');
                 break;
         }
-
     }
 }

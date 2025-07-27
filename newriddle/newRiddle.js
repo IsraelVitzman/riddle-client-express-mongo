@@ -1,5 +1,5 @@
-import { Create } from "../services/create.js";
-
+import { Create } from "../servicesRiddle/create.js";
+import { } from "../login/login.js";
 export async function NewRiddle(id, name, hint, question, answer) {
 
     const newRiddlle = {
