@@ -13,12 +13,10 @@ export async function Update(id, updatedRiddle) {
             },
             body: JSON.stringify(updatedRiddle)
         });
-
-        if (response.ok) {
-            console.log(" Riddle updated successfully");
-        } else {
-            console.log(response.status);
-        }
+        
+        
+        const result =await response.json()
+        console.log(result);
 
     } catch (err) {
         console.log("invalid eroor:", err);

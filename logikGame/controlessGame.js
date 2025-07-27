@@ -7,7 +7,7 @@ import { ResultGame } from "../player/resultGemePlayer.js";
 export async function ManegerGame(name) {
     console.log("welcome!!");
     try {
-        const allRiddles = await Read("riddles/getAllRiddles")
+        const allRiddles = await Read('riddles/getAllRiddlesToGame')
         await Riddles(allRiddles)
         await ResultGame(name)
     } catch (err) {

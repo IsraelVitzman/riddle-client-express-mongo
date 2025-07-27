@@ -11,12 +11,11 @@ export async function Delate(id) {
                 'authorization': cookieHeader
             }
         })
-        if (response.ok) {
-            console.log("seccosssoflly deleted.. ");
-
-        } else {
-            console.log(response.status);
-        }
+        
+        const result =await response.json()
+        console.log(result.message);
+            
+        
 
     } catch (err) {
         console.log("invalid eroor :", err);

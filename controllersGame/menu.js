@@ -5,16 +5,18 @@ import { GetResultPlayer } from "../servicesPlayer/read.js";
 import { Delate } from "../servicesRiddle/delete.js";
 import { Update } from "../servicesRiddle/updete.js";
 import readlineSync from 'readline-sync';
-import { login, GetCookie } from "../login/login.js";
+import { login } from "../login/login.js";
 
 export async function showMainMenu() {
     console.log("Welcome to game riddle");
-    const nameUser = readlineSync.question("What is your name? ");
+    const register = readlineSync.question("if you user or wont to register enter 1 else enter sumting");
 
-    await login(nameUser);
-    if (await GetCookie() === null)
-        return "you have no token try agen"
+    if (register === '1') {
+        const newUser = readlineSync.question("What is your name? ");
+        const password = readlineSync.question("What is your password? ");
+        await login(newUser, password);
 
+    }
 
     while (true) {
         console.log(`
@@ -34,6 +36,7 @@ export async function showMainMenu() {
         switch (choice) {
 
             case '1':
+                const nameUser = readlineSync.question("What is your name? ");
                 await ManegerGame(nameUser);
                 break;
 
@@ -87,6 +90,8 @@ export async function showMainMenu() {
                 const result = await Read("resultGame/resultBestAllPlayers");
                 console.log(result);
                 break;
+
+
 
             default:
                 console.log('⚠️ Invalid choice. Try again.');

@@ -15,11 +15,9 @@ export async function Create(data, url) {
         });
 
 
-        if (!response.ok) {
-            console.log("status", response.status);
-            return null;
-        }
-
+        const result =await response.json()
+        console.log(result.message);
+            
 
 
     } catch (err) {

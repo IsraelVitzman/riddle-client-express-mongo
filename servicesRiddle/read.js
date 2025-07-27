@@ -14,19 +14,17 @@ export async function Read(url) {
                 'Content-Type': 'application/json',
                 'authorization': cookieHeader
             },
-            
-        });
 
-        if (!response.ok) {
-            console.log(response.status);
+        });
+        
+        const data = await response.json();
+        if (response.ok) {
+            return data;
+        }else{
+            console.log(data.messege);
             return [];
         }
-
-        const data = await response.json();
-
-       
-        return data;
-
+        
     } catch (err) {
         console.error("invalid error:", err);
         return [];

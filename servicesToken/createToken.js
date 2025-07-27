@@ -14,17 +14,13 @@ export async function CreateToken(data, url) {
             body: JSON.stringify(data)
         });
 
-
-        if (!response.ok) {
-            console.log("status", response.status);
-            return null;
+        const result = await response.json()
+        if (response.ok) {
+            return result.token
         }
-
-
-        const d = await response.json()
-        console.log(d);
-
-        return d.token
+        else{
+           console.log(result.messege);
+        } 
 
     } catch (err) {
         console.error("❌ Request error:", err);

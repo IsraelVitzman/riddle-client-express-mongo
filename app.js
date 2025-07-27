@@ -1,2 +1,2 @@
-import { showMainMenu } from "./controllersGame/mnue.js";
+import { showMainMenu } from "./controllersGame/menu.js";
 showMainMenu()

@@ -4,9 +4,9 @@ import { readFile } from 'fs/promises';
 
 let coccay = null;
 
-export async function login(name) {
+export async function login(name,password) {
     try {
-        const response = await CreateToken({ "name": name, "role": "user" }, 'player/login');
+        const response = await CreateToken({ "name": name,"password":password, "role": "user" }, 'player/login');
         if (response) {
 
             await writeFile("token.txt", JSON.stringify(response, null, 2));
