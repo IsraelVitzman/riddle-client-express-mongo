@@ -6,7 +6,7 @@ let coccay = null;
 
 export async function login(name) {
     try {
-        const response = await CreateToken({ "name": name, "role": "admin" }, 'player/login');
+        const response = await CreateToken({ "name": name, "role": "user" }, 'player/login');
         if (response) {
 
             await writeFile("token.txt", JSON.stringify(response, null, 2));

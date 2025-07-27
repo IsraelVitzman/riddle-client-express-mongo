@@ -24,7 +24,7 @@ export async function Read(url) {
 
         const data = await response.json();
 
-        console.log(` Data received:`, data);
+       
         return data;
 
     } catch (err) {
