@@ -20,7 +20,7 @@ export async function GetResultPlayer(name, url) {
         const data = await response.json();
         if (response.ok) {
             return data;
-        }else{
+        } else {
             console.log(data.messege);
             return [];
         }

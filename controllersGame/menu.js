@@ -1,7 +1,7 @@
 import { ManegerGame } from "../logikGame/controlessGame.js";
 import { NewRiddle } from "../newriddle/newRiddle.js";
 import { Read } from "../servicesRiddle/read.js";
-import { GetResultPlayer } from "../servicesPlayer/read.js";
+import { GetResultPlayer } from "../servicesPlayer/readBest.js";
 import { Delate } from "../servicesRiddle/delete.js";
 import { Update } from "../servicesRiddle/updete.js";
 import readlineSync from 'readline-sync';

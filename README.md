@@ -31,6 +31,9 @@ RIDDLECLIENTEXPRESS/
 ├── newriddle/
 │   └── newRiddle.js            # יצירת חידה חדשה
 │
+├── login/
+│    └──login.js                #אחראי על רישום משתמש חדש או מנהל
+│
 ├── player/
 │   ├── cheakPlayer.js          # בדיקת שחקן קיים
 │   ├── newPlayer.js            # יצירת שחקן חדש
